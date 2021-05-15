@@ -29,3 +29,11 @@ def calculaEdad(request,anio):
     edadFutura=edadActual+periodo
     documento="<html><body><h2>En el año %s tendrás %s </body></html>" %(anio,edadFutura)
     return HttpResponse(documento)
+
+def registro(request):
+    doc_registro=open("C:/Asociacion Mexicana Contra Delitos Ciberneticos/asocmexdelito/asocmexdelito/templates/asocmexdelito/registro.html")
+    construct_reg=Template(doc_registro.read())
+    doc_registro.close()
+    contexto=Context()
+    documento=construct_reg.render(contexto)
+    return HttpResponse(documento)
