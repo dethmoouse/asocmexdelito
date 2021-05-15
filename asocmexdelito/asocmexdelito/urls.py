@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from asocmexdelito.views import *
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo),
     path('despedida/',despedida),
     path('fechaactual/',fechaactual),
     path('edades/<int:anio>/',calculaEdad),
+    path('registro/',registro),
 ]
