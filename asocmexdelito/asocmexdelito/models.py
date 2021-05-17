@@ -2,7 +2,8 @@ from django.db import models
 
 CREATE TABLE datos_participantes(
     "id_participante" serial NOT NULL PRIMARY KEY,
-    "nombre" varchar(30) NOT NULL
+    "nombre" varchar(30) NOT NULL,
+    "a_paterno" varchar(20) NOT NULL,
 );
 
 
