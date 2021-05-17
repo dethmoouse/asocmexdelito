@@ -22,7 +22,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index),
-    path('fechaactual/',fechaactual),
     path('edades/<int:anio>/',calculaEdad),
     path('registro/',registro),
     path('consulta/',consulta),
