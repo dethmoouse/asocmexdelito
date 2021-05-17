@@ -3,20 +3,18 @@ import datetime
 from django.template import Template,Context
 
 
-def saludo(request):
-    doc_saludo=open("C:/Asociacion Mexicana Contra Delitos Ciberneticos/asocmexdelito/asocmexdelito/templates/asocmexdelito/index.html")
-    plt=Template(doc_saludo.read())
-    doc_saludo.close()
-    contexto=Context()
 
+def index(request):
+    fecha=datetime.datetime.now()
+    doc_index=open("C:/Asociacion Mexicana Contra Delitos Ciberneticos/asocmexdelito/asocmexdelito/templates/asocmexdelito/index.html")
+    plt=Template(doc_index.read())
+    doc_index.close()
+    contexto=Context({"fecha_consulta":fecha})
     documento=plt.render(contexto)
     return HttpResponse(documento)
 
 
     return HttpResponse()
-
-def despedida(request):
-    return HttpResponse("Que te vaya bien amigo")
 
 def fechaactual(request):
 
@@ -36,4 +34,12 @@ def registro(request):
     doc_registro.close()
     contexto=Context()
     documento=construct_reg.render(contexto)
+    return HttpResponse(documento)
+
+def consulta(request):
+    doc_consulta=open("C:/Asociacion Mexicana Contra Delitos Ciberneticos/asocmexdelito/asocmexdelito/templates/asocmexdelito/consulta.html")
+    construct_consulta=Template(doc_consulta.read())
+    doc_consulta.close()
+    contexto=Context()
+    documento=construct_consulta.render(contexto)
     return HttpResponse(documento)
