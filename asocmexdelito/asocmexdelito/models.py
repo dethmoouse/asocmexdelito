@@ -1,11 +1,5 @@
 from django.db import models
 
-CREATE TABLE datos_participantes(
-    "id_participante" serial NOT NULL PRIMARY KEY,
-    "nombre" varchar(30) NOT NULL,
-    "a_paterno" varchar(20) NOT NULL,
-);
-
 
 class datos_participantes(models.Model):
     id_participante = models.IntegerField(default=0,primary_key=true)

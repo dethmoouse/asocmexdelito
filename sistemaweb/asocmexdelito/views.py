@@ -1,31 +1,26 @@
+from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 from django.template import Template,Context
-
-fecha=datetime.datetime.now()
-
-class datos_participantes(object):
-    def __init__(self, id_participante, nombre, a_paterno, a_materno):
-
-        self.id_participante=id_participante
-        self.nombre=nombre
-        self.a_paterno=a_paterno
-        self.a_materno=a_materno
+from .models import datos_participantes,institucion_procedencia,status_aceptado,avances,participante_institucion
 
 
-def index(request):
+# Create your views here.
 
-    #C:/Asociacion Mexicana Contra Delitos Ciberneticos/asocmexdelito/asocmexdelito/templates/
+def inicio(request):
+    print("ayuda banda")
+    template.name='html/index.html'
     doc_index=open()
     plt=Template(doc_index.read())
     doc_index.close()
-    contexto=Context({"fecha_consulta":fecha})
+    contexto=Context()
     documento=plt.render(contexto)
     return HttpResponse(documento)
 
+
 def registro(request):
     participante=datos_participantes("1","Mario","muñoz","falcon")
-    doc_registro=open("C:/Asociacion Mexicana Contra Delitos Ciberneticos/asocmexdelito/asocmexdelito/templates/asocmexdelito/registro.html")
+    doc_registro=open("{% static 'html/registro.html' %} ")
     construct_reg=Template(doc_registro.read())
     doc_registro.close()
     contexto=Context({"nombre_participante":participante.nombre,"a_paterno":participante.a_paterno,"id_participante":participante.id_participante})
